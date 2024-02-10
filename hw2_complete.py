@@ -61,7 +61,7 @@ def build_model1():
     layers.BatchNormalization(),
     layers.MaxPooling2D((4,4), strides=(4,4)), 
     layers.Flatten(),
-    
+
     layers.Dense(128, activation='relu'),
     layers.BatchNormalization(),
     layers.Dense(10)
@@ -98,9 +98,15 @@ def build_model3():
     inputs = Input(shape=(32, 32, 3))
     x = Conv2D(32, kernel_size=(3, 3), padding='same', activation='relu')(inputs)
     x = BatchNormalization()(x)
+
+    x = Conv2D(64, kernel_size=(3,3), padding='same', activation='relu')(x)
+    x = BatchNormalization()(x)
+
+    #x = Conv2D(128, kernel_size=(3,3), padding='same', activation='relu')(x)
+    #x = BatchNormalization()(x)
     
     # Adjusted filter sizes for parameter reduction
-    filter_sizes = [64, 128, 128, 128, 128, 128]  # Example adjustment
+    filter_sizes = [128, 128, 128, 128, 128]  # Example adjustment
     previous_block_output = x
     add_counter = 0
 
