@@ -180,7 +180,7 @@ if __name__ == '__main__':
   train_images, val_images, train_labels, val_labels = train_test_split(
       train_images, train_labels, test_size=0.2, random_state=42
   )
-  '''
+  
   ########################################
   ## Build and train model 1
   model1 = build_model1()
@@ -191,7 +191,7 @@ if __name__ == '__main__':
                   metrics=['accuracy'])
   model1.summary()
 
-  train_history_model1 = model1.fit(train_images, train_labels, epochs=50, validation_data=(val_images, val_labels))
+  train_history_model1 = model1.fit(train_images, train_labels, epochs=70, validation_data=(val_images, val_labels))
 
   #plot_loss(train_history_model1, title='Model 1 Loss', save_plot=True, file_name="model1_loss.png")
 
@@ -232,7 +232,7 @@ if __name__ == '__main__':
   # Evaluate on the test set
   test_loss_model2, test_accuracy_model2 = model2.evaluate(test_images, test_labels)
   print(f"Test Accuracy: {test_accuracy_model2}")
-  '''
+  
   ###########################################################
   ### Repeat for model 3 and your best sub-50k params model
   model3 = build_model3()
@@ -243,7 +243,7 @@ if __name__ == '__main__':
                   metrics=['accuracy'])
   model3.summary()
 
-  train_history_model3 = model3.fit(train_images, train_labels, epochs=50, validation_data=(val_images, val_labels))
+  train_history_model3 = model3.fit(train_images, train_labels, epochs=70, validation_data=(val_images, val_labels))
 
   #plot_loss(train_history_model3, title='Model 1 Loss', save_plot=True, file_name="model3_loss.png")
 
@@ -251,7 +251,7 @@ if __name__ == '__main__':
   test_loss_model3, test_accuracy_model3 = model3.evaluate(test_images, test_labels)
   print(f"Test Accuracy: {test_accuracy_model3}")
 
-  '''
+  
   #############################################################
   model50k = build_model50k()
 
@@ -270,4 +270,4 @@ if __name__ == '__main__':
   print(f"Test Accuracy of model 50k: {test_accuracy_model50k}")
   
   model50k.save('best_model.h5')
-  '''
+  
